@@ -1,20 +1,19 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit'
 
 const AppSlice = createSlice({
   initialState: {
-    userData: null,
+    userData: null
   },
   reducers: {
     setUserData: (state, action) => {
-      console.log('state :: ', state);
-      state.userData = {...(state.userData || {}), ...action.payload};
+      state.userData = {...(state.userData ?? {}), ...action.payload}
     },
-    setLogout: state => {
-      state.userData = null;
-    },
+    setLogout: (state) => {
+      state.userData = null
+    }
   },
-  name: 'test',
-});
+  name: 'test'
+})
 
-export const {setUserData, setLogout} = AppSlice.actions;
-export default AppSlice.reducer;
+export const {setUserData, setLogout} = AppSlice.actions
+export default AppSlice.reducer

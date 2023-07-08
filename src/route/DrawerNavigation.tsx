@@ -1,10 +1,11 @@
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import React, {useState} from 'react';
-import Home from '../screen/Home/Home';
-import Dashboard from '../screen/Dashboard/Dashboard';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import DrawerScreen from '../component/DrawerScreen';
-const Drawer = createDrawerNavigator();
+import React from 'react'
+import {createDrawerNavigator} from '@react-navigation/drawer'
+
+import DrawerScreen from '../component/DrawerScreen'
+import Dashboard from '../screen/Dashboard/Dashboard'
+import Home from '../screen/Home/Home'
+
+const Drawer = createDrawerNavigator()
 
 const DrawerNavigation = () => {
   // const offsets = useSafeAreaInsets();
@@ -21,16 +22,17 @@ const DrawerNavigation = () => {
           // marginBottom: offsets.bottom,
           // marginLeft: isOpen ? 0 : 0,
           overflow: 'hidden',
-          backgroundColor: '#000fff',
+          backgroundColor: '#000fff'
         },
-        keyboardDismissMode: 'on-drag',
+        keyboardDismissMode: 'on-drag'
       }}
-      drawerContent={props => <DrawerScreen {...props} />}>
-      <Drawer.Screen name="Home" component={Home} />
-      <Drawer.Screen name="Feed" component={Dashboard} />
-      <Drawer.Screen name="Article" component={Dashboard} />
+      drawerContent={(props) => <DrawerScreen {...props} />}
+    >
+      <Drawer.Screen name={'Home'} component={Home} />
+      <Drawer.Screen name={'Feed'} component={Dashboard} />
+      <Drawer.Screen name={'Article'} component={Dashboard} />
     </Drawer.Navigator>
-  );
-};
+  )
+}
 
-export default DrawerNavigation;
+export default DrawerNavigation

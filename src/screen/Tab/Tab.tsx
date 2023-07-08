@@ -1,33 +1,32 @@
-import React, {useState} from 'react';
-import {Text, View, useWindowDimensions} from 'react-native';
-import {SceneMap, TabView} from 'react-native-tab-view';
+import React, {useState} from 'react'
+import {useWindowDimensions, View} from 'react-native'
+import {SceneMap, TabView} from 'react-native-tab-view'
 
-type Props = {};
-const FirstRoute = () => <View style={{flex: 1, backgroundColor: '#ff4081'}} />;
+import {styles} from './TabStyle'
 
-const SecondRoute = () => (
-  <View style={{flex: 1, backgroundColor: '#673ab7'}} />
-);
+const FirstRoute = () => <View style={styles.tab1} />
+
+const SecondRoute = () => <View style={styles.tab2} />
 
 const renderScene = SceneMap({
   first: FirstRoute,
-  second: SecondRoute,
-});
-const Tab = (props: Props) => {
-  const layout = useWindowDimensions();
-  const [index, setIndex] = useState(0);
-  const [data, setdata] = useState('');
+  second: SecondRoute
+})
+const Tab = () => {
+  const layout = useWindowDimensions()
+  const [index, setIndex] = useState(0)
+  // const [data, setdata] = useState('');
   const [routes] = useState([
     {key: 'first', title: 'First'},
-    {key: 'second', title: 'Second'},
-  ]);
+    {key: 'second', title: 'Second'}
+  ])
 
-  const appFunction = (data: any[]) => {
-    setdata(data);
-  };
-  
+  // const appFunction = (data: any[]) => {
+  //   setdata(data);
+  // };
+
   return (
-    <View style={{flex: 1}}>
+    <View style={styles.container}>
       <TabView
         navigationState={{index, routes}}
         renderScene={renderScene}
@@ -35,7 +34,7 @@ const Tab = (props: Props) => {
         initialLayout={{width: layout.width}}
       />
     </View>
-  );
-};
+  )
+}
 
-export default Tab;
+export default Tab

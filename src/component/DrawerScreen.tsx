@@ -1,15 +1,16 @@
-import React, {useCallback} from 'react';
-import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
-import {Colors} from '../Helper/colors';
-import {CommonActions, useNavigation} from '@react-navigation/native';
+import React, {useCallback} from 'react'
+import {SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {CommonActions, useNavigation} from '@react-navigation/native'
 
-interface DrawerProps {
-  // onToggle: (status: boolean) => void;
-}
+import {Colors} from '../Helper/colors'
 
-const DrawerScreen = (props: DrawerProps) => {
+// interface DrawerProps {
+//   // onToggle: (status: boolean) => void;
+// }
+
+const DrawerScreen = () => {
   // const {navigation, state} = props;
-  const navigation = useNavigation();
+  const navigation = useNavigation()
 
   const pressLogout = useCallback(() => {
     navigation.dispatch(
@@ -19,49 +20,51 @@ const DrawerScreen = (props: DrawerProps) => {
           {
             name: 'AuthLogin',
             params: {
-              isLogout: true,
-            },
-          },
-        ],
-      }),
-    );
-  }, [navigation]);
+              isLogout: true
+            }
+          }
+        ]
+      })
+    )
+  }, [navigation])
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: '#EDDAA0',
-        }}>
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingVertical: 50,
-            paddingHorizontal: 20,
-            borderBottomWidth: 10,
-            borderColor: Colors.green,
-          }}>
-          <Text style={{fontSize: 20, fontWeight: '900'}}>
-            Welcome To Side Menu
-          </Text>
-          <Text style={{fontSize: 20, fontWeight: '900'}}>Hello User,</Text>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.child}>
+        <View style={styles.userView}>
+          <Text style={styles.userText}>{'Welcome To Side Menu'}</Text>
+          <Text style={styles.userText}>{'Hello User,'}</Text>
         </View>
 
-        <TouchableOpacity
-          onPress={pressLogout}
-          style={{
-            borderWidth: 2,
-            borderColor: Colors.red,
-            margin: 50,
-            padding: 15,
-            alignItems: 'center',
-          }}>
-          <Text style={{fontSize: 20, fontWeight: '900'}}>{'Logout'}</Text>
+        <TouchableOpacity onPress={pressLogout} style={styles.btn}>
+          <Text style={styles.userText}>{'Logout'}</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default DrawerScreen;
+const styles = StyleSheet.create({
+  container: {flex: 1},
+  child: {
+    flex: 1,
+    backgroundColor: Colors.black
+  },
+  userView: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 50,
+    paddingHorizontal: 20,
+    borderBottomWidth: 10,
+    borderColor: Colors.green
+  },
+  userText: {fontSize: 20, fontWeight: '900'},
+  btn: {
+    borderWidth: 2,
+    borderColor: Colors.red,
+    margin: 50,
+    padding: 15,
+    alignItems: 'center'
+  }
+})
+
+export default DrawerScreen

@@ -1,14 +1,12 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import React from 'react'
+import {Text, View} from 'react-native'
 
-type Props = {};
-
-const Dashboard = (props: Props) => {
+const Dashboard = () => {
   return (
     <View>
       <Text>{'Dashboard'}</Text>
     </View>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

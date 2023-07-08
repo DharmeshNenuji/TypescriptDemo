@@ -1,46 +1,37 @@
-import React, {useEffect} from 'react';
-import {ImageSourcePropType, Text, TouchableOpacity, View} from 'react-native';
-import styles from './HomeStyle';
-import {DrawerActions, useNavigation} from '@react-navigation/native';
-import Header from '../../component/Header';
-import {useDrawerStatus} from '@react-navigation/drawer';
+import React, {useEffect} from 'react'
+import {Text, TouchableOpacity, View} from 'react-native'
+import {useDrawerStatus} from '@react-navigation/drawer'
+import {DrawerActions, useNavigation} from '@react-navigation/native'
 
-type Props = {};
+import Header from '../../component/Header'
+import {IMAGES} from '../../Helper/images'
+import styles from './HomeStyle'
 
-const Home = (props: Props) => {
-  const navigation = useNavigation();
-  const status = useDrawerStatus();
+const Home = () => {
+  const navigation: any = useNavigation()
+  const status = useDrawerStatus()
 
-  useEffect(() => {
-    console.log('drawer status is --- > ', status);
-  }, [status]);
-  const menuIcon: ImageSourcePropType = require('../../resource/image/menu.png');
+  useEffect(() => {}, [status])
+  const {menuIcon} = IMAGES
   return (
-    <View style={{flex: 1}}>
+    <View style={styles.container}>
       <Header
         image={menuIcon}
         onPress={() => {
-          console.log('clicked');
-          navigation.dispatch(DrawerActions.toggleDrawer());
+          navigation.dispatch(DrawerActions.toggleDrawer())
         }}
       />
-      <TouchableOpacity
-        style={styles.btn}
-        onPress={() => navigation.navigate('Tab')}>
+      <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Tab')}>
         <Text style={styles.btnText}>{'Tab'}</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.btn}
-        onPress={() => navigation.navigate('MyDrawer')}>
+      <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('MyDrawer')}>
         <Text style={styles.btnText}>{'Drawer'}</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.btn}
-        onPress={() => navigation.navigate('Login')}>
+      <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Login')}>
         <Text style={styles.btnText}>{'Custom'}</Text>
       </TouchableOpacity>
     </View>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
