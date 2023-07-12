@@ -14,10 +14,10 @@ jobs:
       - name: Run Lint
         run: |
           npm run linter
-      - name: Clean Android
-        run: |
-        cd android && ./gradlew clean
-      # - name: Build Android 
+      # - name: Clean Android
+      #   run: |
+      #   cd android && ./gradlew clean
+      # - name: Build Android
       #   run: |
       #   cd android && ./gradlew bundleRelease
     # - name: Upload Artifact
