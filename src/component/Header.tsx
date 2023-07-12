@@ -51,7 +51,7 @@ const headerStyle = StyleSheet.create({
   },
   titleParent: {
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     flex: 1
   },
   leftMenu: {
