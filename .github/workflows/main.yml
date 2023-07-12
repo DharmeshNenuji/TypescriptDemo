@@ -11,6 +11,10 @@ jobs:
       - name: Install npm dependencies
         run: |
           npm install
+      - name: Run Lint
+        run: |
+          npm run linter
+
   # build-android:
   #   needs: install-and-test
   #   runs-on: ubuntu-latest
