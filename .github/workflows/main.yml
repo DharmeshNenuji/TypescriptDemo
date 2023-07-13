@@ -35,7 +35,7 @@ jobs:
         with:
           api_token: ${{secrets.DEMO_APP_IO_API_TOKEN}}
           app_id: ${{secrets.DEMO_APP_IO_APP_ID}}
-          file: Users/mac-3/Documents/Projects/Example/CICDDemo/TypescriptDemo/android/app/build/outputs/apk/debug/app-debug.apk
+          file: /Users/mac-3/Documents/Projects/Example/CICDDemo/TypescriptDemo/android/app/build/outputs/apk/debug/app-debug.apk
           release_notes: 'test release'
           git_release_notes: true
           include_git_commit_id: false
