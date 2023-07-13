@@ -27,7 +27,7 @@ jobs:
       - name: Grant execute permission for Gradle
         run: cd android && chmod +x ./gradlew
 
-      - name: Build with Gradles
+      - name: Build with Gradles Debug Apk
         run: cd android && ./gradlew assembleDebug
 
       - name: Upload APK TestApp.io
@@ -40,15 +40,3 @@ jobs:
           git_release_notes: true
           include_git_commit_id: false
           notify: true
-
-      # - name: Clean Android
-      #   run: |
-      #   cd android && ./gradlew clean
-      # - name: Build Android
-      #   run: |
-      #   cd android && ./gradlew bundleRelease
-    # - name: Upload Artifact
-    #   uses: actions/upload-artifact@v1
-    #   with:
-    #     name: app-release.apk
-    #     path: android/app/build/outputs/apk/release/
