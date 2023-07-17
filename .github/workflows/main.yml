@@ -28,7 +28,7 @@ jobs:
         run: cd android && chmod +x ./gradlew
 
       - name: Gradle Clean
-        run: ./gradlew clean
+        run: cd android && ./gradlew clean
 
       - name: Build with Gradles
         run: cd android && ./gradlew assembleRelease
