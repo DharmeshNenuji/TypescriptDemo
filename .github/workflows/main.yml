@@ -114,7 +114,7 @@ on:
 #env variable change
 jobs:
   IOS_RELEASE:
-    runs-on: macos-latest
+    runs-on: macos-latest-os
 
     steps:
       - name: Checkout repository
