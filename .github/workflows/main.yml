@@ -120,20 +120,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Build and export iOS
-        uses: yukiarrr/ios-build-action@v1.4.0
-        with:
-          project-path: ios/TypeScriptDemo.xcodeproj
-          workspace-path: ios/TypeScriptDemo.xcworkspace
-          scheme: TypeScriptDemo
-          export-method: ad-hoc
-          configuration: Release
-          output-path: artifacts/output.ipa
-          p12-base64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
-          certificate-password: ${{ secrets.P12_PASSWORD }}
-          mobileprovision-base64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
-          code-signing-identity: ${{ secrets.KEYCHAIN_PASSWORD }}
-          team-id: ${{ secrets.TEAM_ID }}
+      # - name: Build and export iOS
+      #   uses: yukiarrr/ios-build-action@v1.4.0
+      #   with:
+      #     project-path: ios/TypeScriptDemo.xcodeproj
+      #     workspace-path: ios/TypeScriptDemo.xcworkspace
+      #     scheme: TypeScriptDemo
+      #     export-method: ad-hoc
+      #     configuration: Release
+      #     output-path: artifacts/output.ipa
+      #     p12-base64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+      #     certificate-password: ${{ secrets.P12_PASSWORD }}
+      #     mobileprovision-base64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
+      #     code-signing-identity: ${{ secrets.KEYCHAIN_PASSWORD }}
+      #     team-id: ${{ secrets.TEAM_ID }}
+
+       - name: Build Archive
+        run: |
+          xcodebuild -workspace $WORKPLACE -scheme $SCHEME -configuration $CONFIGURATION \
+          archive -archivePath $ARCHIVE_PATH -allowProvisioningUpdates
+          PROVISIONING_STYLE="Manual" \
+          PROVISIONING_PROFILE={$BUILD_PROVISION_PROFILE_BASE64} \
+          CODE_SIGN_STYLE="Manual" \
+          CODE_SIGN_IDENTITY={$BUILD_CERTIFICATE_BASE64} \
 
 
 # jobs:
