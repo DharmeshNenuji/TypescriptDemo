@@ -248,10 +248,10 @@ jobs:
       - name: Signing & Provisioning
         run: |
           # create variables
-          CERT_PATH=$RUNNER_TEMP/dist_certificate.p12
-          PP_PATH_PROD=$RUNNER_TEMP/dist_pp.mobileprovision
-          PP_PATH_STAGING=$RUNNER_TEMP/dist_pp_adc.mobileprovision
-          KCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+          CERT_PATH=/Users/mac-3/Desktop/ios-deploy/Certificates.p12
+          PP_PATH_PROD=/Users/mac-3/Desktop/ios-deploy/Stockly__Provisioning_Prod.mobileprovision
+          PP_PATH_STAGING=/Users/mac-3/Desktop/ios-deploy/Stockly__Provisioning_Prod.mobileprovision
+          KCHAIN_PATH=12345
   
           # import certificate and provisioning profile from secrets
           echo -n "$DISTRIBUTION_CERTIFICATE" | base64 - decode - output $CERT_PATH
