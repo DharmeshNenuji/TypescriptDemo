@@ -349,7 +349,8 @@ jobs:
           -configuration Debug \
           -destination generic/platform=iOS \
           clean archive          
-      working-directory: ${{ github.workspace }}
+      
+      working-directory: ${{ '/Users/mac-3/Documents/Projects/Example/CICDDemo/TypeScriptDemo/TypeScriptDemo.xcarchive' }}
 
       - name: export ipa
         env:
