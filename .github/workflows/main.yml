@@ -343,7 +343,7 @@ jobs:
 
       - name: build archive
         run: |
-          xcodebuild -scheme "I am Groot" \
+          xcodebuild -scheme "TypeScriptDemo" \
           -archivePath $RUNNER_TEMP/TypeScriptDemo.xcarchive \
           -sdk iphoneos \
           -configuration Debug \
