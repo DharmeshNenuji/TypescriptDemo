@@ -348,18 +348,17 @@ jobs:
       #     -sdk iphoneos \
       #     -configuration Debug \
       #     -destination generic/platform=iOS \
-      #     clean archive
-
+      #     clean archive          
 
       - name: build archive
-        run: |
-          xcodebuild -scheme "TypeScriptDemo" \
-          -archivePath $RUNNER_TEMP/TypeScriptDemo.xcarchive \
-          -sdk iphoneos \
-          -configuration Debug \
-          -destination generic/platform=iOS \
-          clean archive
-      working-directory: ./Users/mac-3/Documents/Projects/Example/CICDDemo          
+          run: |
+            xcodebuild -scheme "TypeScriptDemo" \
+            -archivePath $RUNNER_TEMP/TypeScriptDemo.xcarchive \
+            -sdk iphoneos \
+            -configuration Debug \
+            -destination generic/platform=iOS \
+            clean archive
+      working-directory: ./Users/mac-3/Documents/Projects/Example/CICDDemo
 
       - name: export ipa
         env:
