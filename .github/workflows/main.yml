@@ -345,7 +345,7 @@ jobs:
       - name: build archive
         run: |
           xcodebuild -scheme "TypeScriptDemo" \
-          -archivePath $ARCHIVE_PATH
+          -archivePath $ARCHIVE_PATH -allowProvisioningUpdates
           -sdk iphoneos \
           -configuration Debug \
           -destination generic/platform=iOS \
