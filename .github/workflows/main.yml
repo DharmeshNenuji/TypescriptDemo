@@ -232,7 +232,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Build IOS
     runs-on: macos-latest
     
     steps:
