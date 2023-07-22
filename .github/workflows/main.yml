@@ -341,14 +341,24 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles          
 
-      - name: build archive
+      # - name: build archive
+      #   run: |
+      #     xcodebuild -scheme "TypeScriptDemo" \
+      #     -archivePath $RUNNER_TEMP/TypeScriptDemo.xcarchive \
+      #     -sdk iphoneos \
+      #     -configuration Debug \
+      #     -destination generic/platform=iOS \
+      #     clean archive
+
+      - name: Build Archive
         run: |
-          xcodebuild -scheme "TypeScriptDemo" \
-          -archivePath $RUNNER_TEMP/TypeScriptDemo.xcarchive \
-          -sdk iphoneos \
-          -configuration Debug \
-          -destination generic/platform=iOS \
-          clean archive          
+          echo -n $RUNNER_TEMP
+          xcodebuild -workspace $WORKPLACE -scheme $SCHEME -configuration $CONFIGURATION \
+          archive -archivePath $ARCHIVE_PATH -allowProvisioningUpdates
+          PROVISIONING_STYLE="Manual" \
+          PROVISIONING_PROFILE={$DISTRIBUTION_PROFILE_STAGING} \
+          CODE_SIGN_STYLE="Manual" \
+          CODE_SIGN_IDENTITY={$DISTRIBUTION_CERTIFICATE} \          
 
       - name: export ipa
         env:
