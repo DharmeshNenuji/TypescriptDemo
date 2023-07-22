@@ -343,7 +343,7 @@ jobs:
 
       - name: build archive
         run: |
-          xcodebuild -scheme "TypeScriptDemo" \
+          xcodebuild -scheme "TypeScriptDemo" -allowProvisioningUpdates \
           -archivePath $RUNNER_TEMP/TypeScriptDemo.xcarchive \
           -sdk iphoneos \
           -configuration Debug \
