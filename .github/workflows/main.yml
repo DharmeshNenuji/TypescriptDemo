@@ -349,7 +349,7 @@ jobs:
           -configuration Debug \
           -destination generic/platform=iOS \
           clean archive 
-        working-directory: ${{ github.workspace }}
+        working-directory: ${{ github.workspace }}/ios
 
       - name: export ipa
         env:
