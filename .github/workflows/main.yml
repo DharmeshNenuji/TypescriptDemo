@@ -318,6 +318,7 @@ jobs:
           P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
           BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
           KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+          ARCHIVE_PATH: ${{ ‘build/TypeScriptDemo.xcarchive’ }}
         run: |
           # create variables
           CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
@@ -344,12 +345,12 @@ jobs:
       - name: build archive
         run: |
           xcodebuild -scheme "TypeScriptDemo" \
-          -archivePath $RUNNER_TEMP/TypeScriptDemo.xcarchive \
+          -archivePath $ARCHIVE_PATH
           -sdk iphoneos \
           -configuration Debug \
           -destination generic/platform=iOS \
           clean archive          
-        working-directory: ./Users/mac-3/Documents/Projects/Example/CICDDemo
+        # working-directory: ./Users/mac-3/Documents/Projects/Example/CICDDemo
 
       - name: export ipa
         env:
