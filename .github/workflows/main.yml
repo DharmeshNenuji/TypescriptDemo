@@ -348,9 +348,8 @@ jobs:
           -sdk iphoneos \
           -configuration Debug \
           -destination generic/platform=iOS \
-          clean archive          
-      
-      working-directory: ${{ '/Users/mac-3/Documents/Projects/Example/CICDDemo/TypeScriptDemo/TypeScriptDemo.xcarchive' }}
+          clean archive 
+        working-directory: ${{ '/Users/mac-3/Documents/Projects/Example/CICDDemo/TypeScriptDemo/TypeScriptDemo.xcarchive' }}
 
       - name: export ipa
         env:
