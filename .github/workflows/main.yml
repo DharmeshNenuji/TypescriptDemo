@@ -22,8 +22,8 @@ jobs:
       - name: Build and export iOS
         uses: yukiarrr/ios-build-action@v1.4.0
         with:
-          project-path: /ios/TypeScriptDemo.xcodeproj
-          workspace-path: /ios/TypeScriptDemo.xcworkspace
+          project-path: ios/TypeScriptDemo.xcodeproj
+          workspace-path: ios/TypeScriptDemo.xcworkspace
           scheme: TypeScriptDemo
           export-method: ad-hoc
           configuration: Release
